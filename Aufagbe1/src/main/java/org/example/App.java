@@ -37,5 +37,6 @@ public class App {
             }
         }
         System.out.println(output);
+        scanner.close();
     }
 }
