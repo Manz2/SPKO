@@ -27,6 +27,7 @@ public class App {
         Matcher matcher = Pattern.compile(all).matcher(input);
 
         StringBuilder output = new StringBuilder();
+        System.out.println(all);
 
         while (matcher.find()) {
             if (matcher.group().matches(regex)) {
