@@ -13,7 +13,7 @@ public class StaplerToAst {
             System.exit(1);
         }
 
-        //program ast = new ExprBuilder().build(tree);
-        //System.out.printf("Expr.toString() = \"%s\"%n", ast);
+        program ast = new StaplerBuilder().build(tree);
+        System.out.printf("Expr.toString() = \"%s\"%n", ast);
     }
 }
