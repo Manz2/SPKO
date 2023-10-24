@@ -1,2 +1,2 @@
-public abstract class befehl {
+public abstract class befehl extends program{
 }
