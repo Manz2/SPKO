@@ -33,10 +33,4 @@ public interface StaplerParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitHeben(StaplerParser.HebenContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link StaplerParser#kippen}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitKippen(StaplerParser.KippenContext ctx);
 }

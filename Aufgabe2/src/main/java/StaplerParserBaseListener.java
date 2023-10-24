@@ -59,18 +59,6 @@ public class StaplerParserBaseListener implements StaplerParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitHeben(StaplerParser.HebenContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterKippen(StaplerParser.KippenContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitKippen(StaplerParser.KippenContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

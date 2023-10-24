@@ -19,10 +19,10 @@ public class StaplerParser extends Parser {
 		HOCH=1, RUNTER=2, LINKS=3, RECHTS=4, KIPPEN=5, VOR=6, ZURUECK=7, VORWAERTS=8, 
 		RUECKWAERTS=9, HALT=10, DEG=11, WS=12;
 	public static final int
-		RULE_program = 0, RULE_befehl = 1, RULE_fahren = 2, RULE_heben = 3, RULE_kippen = 4;
+		RULE_program = 0, RULE_befehl = 1, RULE_fahren = 2, RULE_heben = 3;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"program", "befehl", "fahren", "heben", "kippen"
+			"program", "befehl", "fahren", "heben"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -121,8 +121,8 @@ public class StaplerParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(10);
-			befehl(0);
+			setState(8);
+			befehl();
 			}
 		}
 		catch (RecognitionException re) {
@@ -144,17 +144,8 @@ public class StaplerParser extends Parser {
 		public HebenContext heben() {
 			return getRuleContext(HebenContext.class,0);
 		}
-		public KippenContext kippen() {
-			return getRuleContext(KippenContext.class,0);
-		}
-		public TerminalNode EOF() { return getToken(StaplerParser.EOF, 0); }
-		public List<BefehlContext> befehl() {
-			return getRuleContexts(BefehlContext.class);
-		}
-		public BefehlContext befehl(int i) {
-			return getRuleContext(BefehlContext.class,i);
-		}
 		public TerminalNode WS() { return getToken(StaplerParser.WS, 0); }
+		public TerminalNode EOF() { return getToken(StaplerParser.EOF, 0); }
 		public BefehlContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -175,80 +166,55 @@ public class StaplerParser extends Parser {
 	}
 
 	public final BefehlContext befehl() throws RecognitionException {
-		return befehl(0);
-	}
-
-	private BefehlContext befehl(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		BefehlContext _localctx = new BefehlContext(_ctx, _parentState);
-		BefehlContext _prevctx = _localctx;
-		int _startState = 2;
-		enterRecursionRule(_localctx, 2, RULE_befehl, _p);
+		BefehlContext _localctx = new BefehlContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_befehl);
 		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(17);
+			setState(21);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case LINKS:
-			case RECHTS:
-			case VORWAERTS:
-			case RUECKWAERTS:
-			case HALT:
+			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(13);
+				setState(10);
 				fahren();
 				}
 				break;
-			case HOCH:
-			case RUNTER:
+			case 2:
+				enterOuterAlt(_localctx, 2);
 				{
+				setState(11);
+				heben();
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(12);
+				fahren();
+				setState(13);
+				match(WS);
 				setState(14);
 				heben();
 				}
 				break;
-			case KIPPEN:
-				{
-				setState(15);
-				kippen();
-				}
-				break;
-			case EOF:
+			case 4:
+				enterOuterAlt(_localctx, 4);
 				{
 				setState(16);
+				heben();
+				setState(17);
+				match(WS);
+				setState(18);
+				fahren();
+				}
+				break;
+			case 5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(20);
 				match(EOF);
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(24);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new BefehlContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_befehl);
-					setState(19);
-					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(20);
-					match(WS);
-					setState(21);
-					befehl(3);
-					}
-					} 
-				}
-				setState(26);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -257,7 +223,7 @@ public class StaplerParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
 		}
 		return _localctx;
 	}
@@ -295,7 +261,7 @@ public class StaplerParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(27);
+			setState(23);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1816L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -348,7 +314,7 @@ public class StaplerParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
+			setState(25);
 			_la = _input.LA(1);
 			if ( !(_la==HOCH || _la==RUNTER) ) {
 			_errHandler.recoverInline(this);
@@ -371,109 +337,27 @@ public class StaplerParser extends Parser {
 		return _localctx;
 	}
 
-	@SuppressWarnings("CheckReturnValue")
-	public static class KippenContext extends ParserRuleContext {
-		public TerminalNode KIPPEN() { return getToken(StaplerParser.KIPPEN, 0); }
-		public TerminalNode WS() { return getToken(StaplerParser.WS, 0); }
-		public TerminalNode DEG() { return getToken(StaplerParser.DEG, 0); }
-		public TerminalNode VOR() { return getToken(StaplerParser.VOR, 0); }
-		public TerminalNode ZURUECK() { return getToken(StaplerParser.ZURUECK, 0); }
-		public KippenContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_kippen; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof StaplerParserListener ) ((StaplerParserListener)listener).enterKippen(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof StaplerParserListener ) ((StaplerParserListener)listener).exitKippen(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof StaplerParserVisitor ) return ((StaplerParserVisitor<? extends T>)visitor).visitKippen(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final KippenContext kippen() throws RecognitionException {
-		KippenContext _localctx = new KippenContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_kippen);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(31);
-			match(KIPPEN);
-			setState(32);
-			match(WS);
-			setState(33);
-			_la = _input.LA(1);
-			if ( !(_la==VOR || _la==ZURUECK) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
-			setState(34);
-			match(DEG);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
-		switch (ruleIndex) {
-		case 1:
-			return befehl_sempred((BefehlContext)_localctx, predIndex);
-		}
-		return true;
-	}
-	private boolean befehl_sempred(BefehlContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 0:
-			return precpred(_ctx, 2);
-		}
-		return true;
-	}
-
 	public static final String _serializedATN =
-		"\u0004\u0001\f%\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
-		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0001"+
-		"\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0003\u0001\u0012\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0005"+
-		"\u0001\u0017\b\u0001\n\u0001\f\u0001\u001a\t\u0001\u0001\u0002\u0001\u0002"+
-		"\u0001\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
-		"\u0001\u0004\u0001\u0004\u0000\u0001\u0002\u0005\u0000\u0002\u0004\u0006"+
-		"\b\u0000\u0003\u0002\u0000\u0003\u0004\b\n\u0001\u0000\u0001\u0002\u0001"+
-		"\u0000\u0006\u0007#\u0000\n\u0001\u0000\u0000\u0000\u0002\u0011\u0001"+
-		"\u0000\u0000\u0000\u0004\u001b\u0001\u0000\u0000\u0000\u0006\u001d\u0001"+
-		"\u0000\u0000\u0000\b\u001f\u0001\u0000\u0000\u0000\n\u000b\u0003\u0002"+
-		"\u0001\u0000\u000b\u0001\u0001\u0000\u0000\u0000\f\r\u0006\u0001\uffff"+
-		"\uffff\u0000\r\u0012\u0003\u0004\u0002\u0000\u000e\u0012\u0003\u0006\u0003"+
-		"\u0000\u000f\u0012\u0003\b\u0004\u0000\u0010\u0012\u0005\u0000\u0000\u0001"+
-		"\u0011\f\u0001\u0000\u0000\u0000\u0011\u000e\u0001\u0000\u0000\u0000\u0011"+
-		"\u000f\u0001\u0000\u0000\u0000\u0011\u0010\u0001\u0000\u0000\u0000\u0012"+
-		"\u0018\u0001\u0000\u0000\u0000\u0013\u0014\n\u0002\u0000\u0000\u0014\u0015"+
-		"\u0005\f\u0000\u0000\u0015\u0017\u0003\u0002\u0001\u0003\u0016\u0013\u0001"+
-		"\u0000\u0000\u0000\u0017\u001a\u0001\u0000\u0000\u0000\u0018\u0016\u0001"+
-		"\u0000\u0000\u0000\u0018\u0019\u0001\u0000\u0000\u0000\u0019\u0003\u0001"+
-		"\u0000\u0000\u0000\u001a\u0018\u0001\u0000\u0000\u0000\u001b\u001c\u0007"+
-		"\u0000\u0000\u0000\u001c\u0005\u0001\u0000\u0000\u0000\u001d\u001e\u0007"+
-		"\u0001\u0000\u0000\u001e\u0007\u0001\u0000\u0000\u0000\u001f \u0005\u0005"+
-		"\u0000\u0000 !\u0005\f\u0000\u0000!\"\u0007\u0002\u0000\u0000\"#\u0005"+
-		"\u000b\u0000\u0000#\t\u0001\u0000\u0000\u0000\u0002\u0011\u0018";
+		"\u0004\u0001\f\u001c\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0001\u0000\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001\u0016"+
+		"\b\u0001\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0000"+
+		"\u0000\u0004\u0000\u0002\u0004\u0006\u0000\u0002\u0002\u0000\u0003\u0004"+
+		"\b\n\u0001\u0000\u0001\u0002\u001b\u0000\b\u0001\u0000\u0000\u0000\u0002"+
+		"\u0015\u0001\u0000\u0000\u0000\u0004\u0017\u0001\u0000\u0000\u0000\u0006"+
+		"\u0019\u0001\u0000\u0000\u0000\b\t\u0003\u0002\u0001\u0000\t\u0001\u0001"+
+		"\u0000\u0000\u0000\n\u0016\u0003\u0004\u0002\u0000\u000b\u0016\u0003\u0006"+
+		"\u0003\u0000\f\r\u0003\u0004\u0002\u0000\r\u000e\u0005\f\u0000\u0000\u000e"+
+		"\u000f\u0003\u0006\u0003\u0000\u000f\u0016\u0001\u0000\u0000\u0000\u0010"+
+		"\u0011\u0003\u0006\u0003\u0000\u0011\u0012\u0005\f\u0000\u0000\u0012\u0013"+
+		"\u0003\u0004\u0002\u0000\u0013\u0016\u0001\u0000\u0000\u0000\u0014\u0016"+
+		"\u0005\u0000\u0000\u0001\u0015\n\u0001\u0000\u0000\u0000\u0015\u000b\u0001"+
+		"\u0000\u0000\u0000\u0015\f\u0001\u0000\u0000\u0000\u0015\u0010\u0001\u0000"+
+		"\u0000\u0000\u0015\u0014\u0001\u0000\u0000\u0000\u0016\u0003\u0001\u0000"+
+		"\u0000\u0000\u0017\u0018\u0007\u0000\u0000\u0000\u0018\u0005\u0001\u0000"+
+		"\u0000\u0000\u0019\u001a\u0007\u0001\u0000\u0000\u001a\u0007\u0001\u0000"+
+		"\u0000\u0000\u0001\u0015";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

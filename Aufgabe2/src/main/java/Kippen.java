@@ -1,4 +1,4 @@
-public abstract class Kippen extends befehl{
+public abstract class Kippen extends program{
     private final String richtung;
     private final int winkel;
 

@@ -1,4 +1,4 @@
-public abstract class fahren extends befehl{
+public abstract class fahren extends program{
     private final String richtung;
 
     public fahren(String value) {

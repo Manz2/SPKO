@@ -5,8 +5,9 @@ program: befehl;
 
 befehl: fahren
 | heben
-| kippen
-| befehl WS befehl
+//| kippen
+| fahren WS heben
+| heben WS fahren
 | EOF;
 
 fahren: VORWAERTS
@@ -16,4 +17,4 @@ fahren: VORWAERTS
 | LINKS;
 
 heben: HOCH| RUNTER;
-kippen: KIPPEN WS (VOR|ZURUECK) DEG;
+//kippen: KIPPEN WS (VOR|ZURUECK) DEG;

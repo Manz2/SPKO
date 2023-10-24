@@ -46,14 +46,4 @@ public interface StaplerParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitHeben(StaplerParser.HebenContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link StaplerParser#kippen}.
-	 * @param ctx the parse tree
-	 */
-	void enterKippen(StaplerParser.KippenContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link StaplerParser#kippen}.
-	 * @param ctx the parse tree
-	 */
-	void exitKippen(StaplerParser.KippenContext ctx);
 }
