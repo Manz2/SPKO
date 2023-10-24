@@ -1,0 +1,4 @@
+.idea
+*/.idea
+*/*/.idea
+Aufgabe2\.idea\
