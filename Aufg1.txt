@@ -1,0 +1,109 @@
+//INTO PARSER
+
+parser grammar ExprParser;
+options { tokenVocab=ExprLexer; }
+
+start: TIME;
+
+
+
+//INTO LEXER TAB:
+
+lexer grammar ExprLexer;
+
+fragment HOUR: ('0'?[0-9] | '1'[0-2]);
+fragment HOUR23: ( ('0'? | '1') [0-9] | '2'[0-3]);
+fragment HOUR2400: ('24:00');
+fragment SEP: ':';
+fragment MIN: [0-5][0-9];
+fragment WHITE: ' ';
+fragment STR: ('a.m.'|'p.m.');
+fragment TWLF: '12'(' midnight' | ' noon');
+fragment ONLYSTR: ('Noon' | 'Midnight');
+
+TIME: (HOUR SEP MIN WHITE STR) | (HOUR23 SEP MIN) | HOUR2400 | TWLF | ONLYSTR;
+
+
+
+
+bad sol:
+parser grammar ExprParser;
+options { tokenVocab=ExprLexer; }
+
+time: HOUR SEP MIN WHITE STR
+| HOUR23 SEP MIN
+| HOUR2400 
+| TWLF 
+| time2;
+
+time2: ONLYSTR;
+
+t: hour;
+
+hour: HOUR SEP min
+| HOUR23 SEP min;
+
+min: MIN
+| MIN WHITE STR;
+
+
+
+
+HOCH: 'up';
+RUNTER: 'down';
+LINKS: 'left';
+RECHTS: 'right';
+KIPPEN: 'tilt';
+VOR: 'toFront';
+ZURUECK: 'toBack';
+VORWAERTS: 'forward';
+RUECKWAERTS: 'backward';
+HALT: 'stop';
+DEG: [0-9]+;
+WS: ' ';
+
+-------------
+
+parser grammar ExprParser;
+options { tokenVocab=ExprLexer; }
+
+program: befehl | befehl whitespace;
+
+whitespace: WS befehl whitespace | EOF;
+
+befehl: fahren 
+| heben
+| kippen;
+
+fahren: VORWAERTS
+| RUECKWAERTS
+| HALT
+| RECHTS
+| LINKS;
+
+heben: HOCH| RUNTER;
+
+kippen: KIPPEN WS (VOR|ZURUECK) DEG;
+
+-----------------
+
+program: befehl;
+
+befehl: fahren 
+| heben
+| kippen
+| befehl WS befehl
+| EOF;
+
+command: befehl
+| befehl WS befehl;
+
+fahren: VORWAERTS
+| RUECKWAERTS
+| HALT
+| RECHTS
+| LINKS;
+
+heben: HOCH| RUNTER;
+
+kippen: KIPPEN WS (VOR|ZURUECK) DEG;
