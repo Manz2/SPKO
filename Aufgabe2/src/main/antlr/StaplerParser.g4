@@ -1,13 +1,11 @@
 parser grammar StaplerParser;
-options { tokenVocab=StaplerLexer; }
 
-program: befehl;
+program: befehl | EOF;
 
 befehl: fahren
 | heben
 | kippen
-| befehl WS befehl
-| EOF;
+| befehl WS befehl;
 
 fahren: VORWAERTS
 | RUECKWAERTS
