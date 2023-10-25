@@ -16,7 +16,7 @@ public final class StaplerBuilder extends StaplerParserBaseListener{
             befehl e1 = this.stack.pop();
             befehl e2 = this.stack.pop();
             this.stack.push(new befehl(e2.toString() + " "+ e1.toString()));
-        }
+        } //stack unnötig, variablenzuweisung
     }
     @Override
     public void exitFahren(StaplerParser.FahrenContext ctx) {
