@@ -4,20 +4,22 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import java.util.Stack;
 
 public final class StaplerBuilder extends StaplerParserBaseListener{
-    private Stack<befehl> stack = new Stack<befehl>(); //befehl=Expr
+    StringBuilder builder = new StringBuilder();
     public befehl build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
-        return this.stack.pop();
+        return new befehl(builder.toString());
     }
 
     @Override
     public void exitBefehl(StaplerParser.BefehlContext ctx){
-        if(ctx.getChildCount() == 3){
-            befehl e1 = this.stack.pop();
-            befehl e2 = this.stack.pop();
-            this.stack.push(new befehl(e2.toString() + " "+ e1.toString()));
-        }
+        builder.deleteCharAt(builder.length() - 1);
     }
+
+    public void exitDistanz(StaplerParser.DistanzContext ctx){
+        builder.append(ctx.DISTANZ().getText() + " ");
+    }
+
+
     @Override
     public void exitFahren(StaplerParser.FahrenContext ctx) {
         String s = "";
@@ -39,7 +41,7 @@ public final class StaplerBuilder extends StaplerParserBaseListener{
                 s = ctx.HALT().getText()+s;
                 break;
         }
-        this.stack.push(new befehl(s));
+        builder.append(s + " ");
     }
     @Override
     public void exitHeben(StaplerParser.HebenContext ctx) {
@@ -52,7 +54,7 @@ public final class StaplerBuilder extends StaplerParserBaseListener{
             case StaplerLexer.RUNTER:
                 s = ctx.RUNTER().getText()+s;
         }
-        this.stack.push(new befehl(s));
+        builder.append(s + " ");
     }
 
 }

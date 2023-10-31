@@ -40,6 +40,18 @@ public class StaplerParserBaseListener implements StaplerParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDistanz(StaplerParser.DistanzContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDistanz(StaplerParser.DistanzContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFahren(StaplerParser.FahrenContext ctx) { }
 	/**
 	 * {@inheritDoc}

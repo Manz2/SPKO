@@ -1,4 +1,4 @@
-public abstract class Heben extends program{
+public abstract class Heben extends program {
     private final String richtung;
 
     public Heben(String value) {

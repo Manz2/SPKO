@@ -17,7 +17,7 @@ public class StaplerLexer extends Lexer {
 		new PredictionContextCache();
 	public static final int
 		HOCH=1, RUNTER=2, LINKS=3, RECHTS=4, KIPPEN=5, VOR=6, ZURUECK=7, VORWAERTS=8, 
-		RUECKWAERTS=9, HALT=10, DEG=11, WS=12;
+		RUECKWAERTS=9, HALT=10, DISTANZ=11, WS=12;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -29,7 +29,7 @@ public class StaplerLexer extends Lexer {
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"HOCH", "RUNTER", "LINKS", "RECHTS", "KIPPEN", "VOR", "ZURUECK", "VORWAERTS", 
-			"RUECKWAERTS", "HALT", "DEG", "WS"
+			"RUECKWAERTS", "HALT", "DISTANZ", "WS"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -44,7 +44,7 @@ public class StaplerLexer extends Lexer {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "HOCH", "RUNTER", "LINKS", "RECHTS", "KIPPEN", "VOR", "ZURUECK", 
-			"VORWAERTS", "RUECKWAERTS", "HALT", "DEG", "WS"
+			"VORWAERTS", "RUECKWAERTS", "HALT", "DISTANZ", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();

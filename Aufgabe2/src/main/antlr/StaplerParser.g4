@@ -6,9 +6,11 @@ program: befehl;
 befehl: fahren
 | heben
 //| kippen
-| fahren WS heben
-| heben WS fahren
+| fahren WS distanz WS heben WS distanz
+| heben WS distanz WS fahren WS distanz
 | EOF;
+
+distanz: DISTANZ;
 
 fahren: VORWAERTS
 | RUECKWAERTS

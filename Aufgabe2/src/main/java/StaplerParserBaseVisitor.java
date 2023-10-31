@@ -31,6 +31,13 @@ public class StaplerParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitDistanz(StaplerParser.DistanzContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitFahren(StaplerParser.FahrenContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

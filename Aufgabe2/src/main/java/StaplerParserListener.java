@@ -27,6 +27,16 @@ public interface StaplerParserListener extends ParseTreeListener {
 	 */
 	void exitBefehl(StaplerParser.BefehlContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link StaplerParser#distanz}.
+	 * @param ctx the parse tree
+	 */
+	void enterDistanz(StaplerParser.DistanzContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link StaplerParser#distanz}.
+	 * @param ctx the parse tree
+	 */
+	void exitDistanz(StaplerParser.DistanzContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link StaplerParser#fahren}.
 	 * @param ctx the parse tree
 	 */

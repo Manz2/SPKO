@@ -6,7 +6,7 @@ public class StaplerToAst {
     private StaplerToAst() { }
 
     public static void main(String[] args) throws Exception {
-        StaplerLexer lexer = new StaplerLexer(CharStreams.fromString("forward up"));
+        StaplerLexer lexer = new StaplerLexer(CharStreams.fromString("left 12 up 14"));
         StaplerParser parser = new StaplerParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.program();
         if (parser.getNumberOfSyntaxErrors() > 0) {

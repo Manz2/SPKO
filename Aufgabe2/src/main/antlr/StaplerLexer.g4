@@ -10,5 +10,5 @@ ZURUECK: 'toBack';
 VORWAERTS: 'forward';
 RUECKWAERTS: 'backward';
 HALT: 'stop';
-DEG: [0-9]+;
+DISTANZ: [0-9]+;
 WS: ' ';

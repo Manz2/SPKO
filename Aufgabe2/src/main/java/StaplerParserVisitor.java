@@ -22,6 +22,12 @@ public interface StaplerParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBefehl(StaplerParser.BefehlContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link StaplerParser#distanz}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDistanz(StaplerParser.DistanzContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link StaplerParser#fahren}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
