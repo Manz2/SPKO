@@ -17,7 +17,7 @@ public class App {
         String flags = "[-#\\+ 0,\\(]*"; // -,#,+, ,0,,,(
         String width = "[0-9]*";
         String conversion = "[AaBbCcdEefGghHnoSsXx%]";
-        String timeConversion = "([tT][HIklMSLNpzKsQBbhAaCYyjmdeRTrDFC]?)";
+        String timeConversion = "([tT][HIklMSLNpzKsQBbhAaCYyjmdeRTrDFC]?)"; //future use, irgendein buchstabe und dann semntik
         String precision = "(\\.\\d*)?";
         String fullConversion = "(" + conversion + "|" + timeConversion + ")";
 
@@ -27,7 +27,7 @@ public class App {
         Matcher matcher = Pattern.compile(all).matcher(input);
 
         StringBuilder output = new StringBuilder();
-        System.out.println(all);
+        //System.out.println(all);
 
         while (matcher.find()) {
             if (matcher.group().matches(regex)) {
