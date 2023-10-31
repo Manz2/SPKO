@@ -1,13 +1,38 @@
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import java.util.List;
 import java.util.Stack;
 
 public final class StaplerBuilder extends StaplerParserBaseListener{
     StringBuilder builder = new StringBuilder();
     public befehl build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
-        return new befehl(builder.toString());
+        String s = builder.toString();
+        if(statischeSemantik(s)){
+            return new befehl(s);
+        }else {
+            System.exit(1);
+            return null;
+        }
+    }
+
+    boolean statischeSemantik(String s){
+        String[] l = s.split(" ");
+        if(l[0].equals("up") || l[0].equals("down")){
+            if(Integer.parseInt(l[1]) > 2500){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            if(Integer.parseInt(l[3]) > 2500){
+                return false;
+            } else {
+                return true;
+            }
+        }
+
     }
 
     @Override
