@@ -1,16 +1,13 @@
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.util.List;
-import java.util.Stack;
-
 public final class StaplerBuilder extends StaplerParserBaseListener{
     StringBuilder builder = new StringBuilder();
-    public befehl build(ParseTree tree) {
+    public Befehl build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
         String s = builder.toString();
         if(statischeSemantik(s)){
-            return new befehl(s);
+            return new Befehl(s);
         }else {
             System.exit(1);
             return null;

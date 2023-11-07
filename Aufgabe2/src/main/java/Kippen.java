@@ -1,4 +1,4 @@
-public abstract class Kippen extends program{
+public abstract class Kippen extends Programm {
     private final String richtung;
     private final int winkel;
 
@@ -19,6 +19,11 @@ public abstract class Kippen extends program{
     @Override
     public String toString() {
         return this.richtung + this.winkel;
+    }
+
+    @Override
+    public void accept(ProgVisitor visitor) {
+        visitor.visitBefehl(this);
     }
 
 }

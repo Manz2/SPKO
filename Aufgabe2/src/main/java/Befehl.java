@@ -1,7 +1,7 @@
-public class befehl extends program{
+public class Befehl extends Programm {
     private final String befehl;
 
-    public befehl(String value) {
+    public Befehl(String value) {
         this.befehl = value;
     }
 
@@ -12,5 +12,10 @@ public class befehl extends program{
     @Override
     public String toString() {
         return this.befehl;
+    }
+
+    @Override
+    public void accept(ProgVisitor visitor) {
+        visitor.visitBefehl(this);
     }
 }

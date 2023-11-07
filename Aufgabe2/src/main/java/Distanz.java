@@ -1,4 +1,4 @@
-public abstract class Distanz extends program{
+public final class Distanz extends Programm {
     private final String distanz;
 
     public Distanz(String distanz) {
@@ -14,4 +14,8 @@ public abstract class Distanz extends program{
         return this.distanz + "m";
     }
 
+    @Override
+    public void accept(ProgVisitor visitor) {
+        visitor.visitBefehl(this);
+    }
 }

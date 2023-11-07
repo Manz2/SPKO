@@ -1,7 +1,7 @@
-public abstract class fahren extends program{
+public final class Fahren extends Programm {
     private final String richtung;
 
-    public fahren(String value) {
+    public Fahren(String value) {
         this.richtung = value;
     }
 
@@ -14,4 +14,8 @@ public abstract class fahren extends program{
         return this.richtung;
     }
 
+    @Override
+    public void accept(ProgVisitor visitor) {
+        visitor.visitBefehl(this);
+    }
 }

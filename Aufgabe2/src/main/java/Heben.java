@@ -1,4 +1,4 @@
-public abstract class Heben extends program {
+public final class Heben extends Programm {
     private final String richtung;
 
     public Heben(String value) {
@@ -12,6 +12,10 @@ public abstract class Heben extends program {
     @Override
     public String toString() {
         return this.richtung;
+    }
+    @Override
+    public void accept(ProgVisitor visitor) {
+        visitor.visitBefehl(this);
     }
 
 }

@@ -1,7 +1,7 @@
 parser grammar StaplerParser;
 options { tokenVocab=StaplerLexer; }
 
-program: befehl;
+programm: befehl;
 
 befehl: fahren
 | heben
