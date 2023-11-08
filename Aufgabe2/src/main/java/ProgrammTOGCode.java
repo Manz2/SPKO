@@ -6,7 +6,7 @@ public final class ProgrammTOGCode {
     private ProgrammTOGCode() {}
 
     public static void main(String[] args) {
-        StaplerLexer lexer = new StaplerLexer(CharStreams.fromString("forward 12 up 14"));
+        StaplerLexer lexer = new StaplerLexer(CharStreams.fromString("forward 12 up 14 down 20"));
         StaplerParser parser = new StaplerParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.programm();
         if (parser.getNumberOfSyntaxErrors() > 0) {
