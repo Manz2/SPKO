@@ -1,14 +1,11 @@
 parser grammar StaplerParser;
 options { tokenVocab=StaplerLexer; }
 
-programm: befehl;
+programm: befehl+;
 
-befehl: fahren
-| heben
-//| kippen
-| fahren WS distanz WS heben WS distanz
-| heben WS distanz WS fahren WS distanz
-| EOF;
+befehl: heben WS distanz
+| fahren WS distanz
+|WS;
 
 distanz: DISTANZ;
 
