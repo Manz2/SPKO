@@ -1,4 +1,4 @@
-// Generated from C:/Users/erikm/Documents/Htwg/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
+// Generated from C:/Users/User/Documents/SPKO/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -17,7 +17,7 @@ public class StaplerParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProgram(StaplerParser.ProgramContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProgramm(StaplerParser.ProgrammContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

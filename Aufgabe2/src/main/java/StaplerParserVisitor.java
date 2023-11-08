@@ -1,4 +1,4 @@
-// Generated from C:/Users/erikm/Documents/Htwg/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
+// Generated from C:/Users/User/Documents/SPKO/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -10,11 +10,11 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface StaplerParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link StaplerParser#program}.
+	 * Visit a parse tree produced by {@link StaplerParser#programm}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProgram(StaplerParser.ProgramContext ctx);
+	T visitProgramm(StaplerParser.ProgrammContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link StaplerParser#befehl}.
 	 * @param ctx the parse tree

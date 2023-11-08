@@ -1,4 +1,4 @@
-// Generated from C:/Users/erikm/Documents/Htwg/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
+// Generated from C:/Users/User/Documents/SPKO/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -16,13 +16,13 @@ public class StaplerParserBaseListener implements StaplerParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProgram(StaplerParser.ProgramContext ctx) { }
+	@Override public void enterProgramm(StaplerParser.ProgrammContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProgram(StaplerParser.ProgramContext ctx) { }
+	@Override public void exitProgramm(StaplerParser.ProgrammContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

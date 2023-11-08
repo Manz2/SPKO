@@ -1,4 +1,4 @@
-// Generated from C:/Users/erikm/Documents/Htwg/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
+// Generated from C:/Users/User/Documents/SPKO/SPKO/Aufgabe2/src/main/antlr/StaplerParser.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -7,15 +7,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface StaplerParserListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link StaplerParser#program}.
+	 * Enter a parse tree produced by {@link StaplerParser#programm}.
 	 * @param ctx the parse tree
 	 */
-	void enterProgram(StaplerParser.ProgramContext ctx);
+	void enterProgramm(StaplerParser.ProgrammContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link StaplerParser#program}.
+	 * Exit a parse tree produced by {@link StaplerParser#programm}.
 	 * @param ctx the parse tree
 	 */
-	void exitProgram(StaplerParser.ProgramContext ctx);
+	void exitProgramm(StaplerParser.ProgrammContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link StaplerParser#befehl}.
 	 * @param ctx the parse tree
