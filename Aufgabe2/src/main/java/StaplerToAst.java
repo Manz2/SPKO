@@ -7,13 +7,13 @@ public class StaplerToAst {
     public static void main(String[] args) throws Exception {
         StaplerLexer lexer = new StaplerLexer(CharStreams.fromString("left 12 up 14"));
         StaplerParser parser = new StaplerParser(new CommonTokenStream(lexer));
-        ParseTree tree = parser.program();
+        ParseTree tree = parser.programm();
         if (parser.getNumberOfSyntaxErrors() > 0) {
             System.err.printf("%d error(s) detected%n", parser.getNumberOfSyntaxErrors());
             System.exit(1);
         }
 
-        Befehl ast = new StaplerBuilder().build(tree);
+        Programm ast = new StaplerBuilder().build(tree);
         System.out.printf("Program.toString() = \"%s\"%n", ast);
     }
 }

@@ -1,82 +1,64 @@
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class StaplerBuilder extends StaplerParserBaseListener{
-    StringBuilder builder = new StringBuilder();
-    public Befehl build(ParseTree tree) {
+    List<Befehl> list = new ArrayList<>();
+    String richtung;
+    boolean fahren;
+    public Programm build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
-        String s = builder.toString();
-        if(statischeSemantik(s)){
-            return new Befehl(s);
-        }else {
-            System.exit(1);
-            return null;
-        }
-    }
-
-    boolean statischeSemantik(String s){
-        String[] l = s.split(" ");
-        if(l[0].equals("up") || l[0].equals("down")){
-            if(Integer.parseInt(l[1]) > 2500){
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            if(Integer.parseInt(l[3]) > 2500){
-                return false;
-            } else {
-                return true;
-            }
-        }
-
+        return new Programm(list);
     }
 
     @Override
     public void exitBefehl(StaplerParser.BefehlContext ctx){
-        builder.deleteCharAt(builder.length() - 1);
+        //builder.deleteCharAt(builder.length() - 1);
     }
 
+    @Override
     public void exitDistanz(StaplerParser.DistanzContext ctx){
-        builder.append(ctx.DISTANZ().getText() + " ");
+        if(fahren){
+            list.add(new Fahren(richtung,Integer.parseInt(ctx.getStart().getText())));
+        } else {
+            list.add(new Heben(richtung,Integer.parseInt(ctx.getStart().getText())));
+        }
     }
 
 
     @Override
     public void exitFahren(StaplerParser.FahrenContext ctx) {
-        String s = "";
-
+        fahren = true;
         switch (ctx.getStart().getType()){
             case StaplerLexer.LINKS:
-                s = ctx.LINKS().getText() + s;
-                break;
+                richtung = ctx.LINKS().getText();
+            break;
             case StaplerLexer.RECHTS:
-                s = ctx.RECHTS().getText()+s;
+                richtung = ctx.RECHTS().getText();
                 break;
             case StaplerLexer.VORWAERTS:
-                s = ctx.VORWAERTS().getText()+s;
+                richtung = ctx.VORWAERTS().getText();
                 break;
             case StaplerLexer.RUECKWAERTS:
-                s = ctx.RUECKWAERTS().getText()+s;
+                richtung = ctx.RUECKWAERTS().getText();
                 break;
             case StaplerLexer.HALT:
-                s = ctx.HALT().getText()+s;
+                richtung = ctx.HALT().getText();
                 break;
         }
-        builder.append(s + " ");
     }
     @Override
     public void exitHeben(StaplerParser.HebenContext ctx) {
-        String s = "";
-
+        fahren  = false;
         switch (ctx.getStart().getType()){
             case StaplerLexer.HOCH:
-                s = ctx.HOCH().getText() + s;
+                richtung = ctx.HOCH().getText();
                 break;
             case StaplerLexer.RUNTER:
-                s = ctx.RUNTER().getText()+s;
+                richtung = ctx.RUNTER().getText();
         }
-        builder.append(s + " ");
     }
 
 }

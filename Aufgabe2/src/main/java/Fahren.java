@@ -1,17 +1,25 @@
-public final class Fahren extends Programm {
+public final class Fahren implements Befehl {
     private final String richtung;
+    private final int distanz;
 
-    public Fahren(String value) {
-        this.richtung = value;
+    public Fahren(String richtung,int distanz) {
+        this.richtung = richtung;
+        this.distanz = distanz;
+        if(distanz > 100000){
+            System.exit(1);
+            //hier fehlt noch eine Fehlermeldung
+        }
     }
 
-    public String getValue() {
+    public String getRichtung() {
         return this.richtung;
     }
-
+    public int getDistanz() {
+        return this.distanz;
+    }
     @Override
     public String toString() {
-        return this.richtung;
+        return this.richtung + this.distanz;
     }
 
     @Override
