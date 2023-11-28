@@ -5,7 +5,10 @@ import java.nio.file.Paths;
 import java.io.IOException;
 
 import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public final class Procedural {
     public Procedural() { }
@@ -37,11 +40,28 @@ public final class Procedural {
     }
 
     private static void removeEmptyLines(LinkedList<String> lines) {
-        lines.removeIf(String::isEmpty);
+        List<String> linesToRemove = new ArrayList<>();
+
+        for (String line : lines) {
+            if (line.isEmpty()) {
+                linesToRemove.add(line);
+            }
+        }
+
+        lines.removeAll(linesToRemove);
     }
 
+
     private static void removeShortLines(LinkedList<String> lines) {
-        lines.removeIf(s -> s.length() < MIN_LENGTH);
+        List<String> linesToRemove = new ArrayList<>();
+
+        for (String line : lines) {
+            if (line.length() < MIN_LENGTH) {
+                linesToRemove.add(line);
+            }
+        }
+
+        lines.removeAll(linesToRemove);
     }
 
     private static int totalLineLengths(LinkedList<String> lines) {
