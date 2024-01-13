@@ -18,7 +18,7 @@ public final class TimingComparison {
         String[] testTextArray = {
                 filePath
         };
-        Procedural.main(testTextArray); //23700
-        Functional.main(testTextArray);//11096
+        Procedural.main(testTextArray); 
+        Functional.main(testTextArray);
     }
 }

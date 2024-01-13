@@ -1,0 +1,57 @@
+group Aufgabe6;
+delimiters "$", "$"
+
+surrounding(classes) ::= <<
+<!DOCTYPE html>
+<html lang="de">
+<head>
+        <style type="text/css">
+            th, td { border-bottom: thin solid; padding: 4px; text-align: left; }
+            td { font-family: monospace }
+        </style>
+ </head>
+<body>
+    <h1>Sprachkonzepte, Aufgabe 6</h1>
+    $classes:dec()$
+</body>
+</html>
+>>
+
+dec(class) ::= <<
+    $if (class.interface) $$interface(class)$$ else $$ class(class) $$endif$
+>>
+
+class(class) ::= <<
+
+    <h2>class $class.name$:</h2>
+    <table>
+        <tbody>
+            <th>Interface</th>
+            <th>Methods</th>
+        </tbody>
+        $class.interfaces:method()$
+    </table>
+>>
+
+interface(interface) ::= <<
+    <h2>interface $class.name$:</h2>
+    <table>
+        <tbody>
+            <th>Methods</th>
+        </tbody>
+        <td>
+            $interface.methods; separator="<br>"$
+        </td>
+    </table>
+>>
+
+method(interface) ::= <<
+<tr>
+    <td>
+        $interface.name$
+    </td>
+    <td>
+        $interface.methods; separator="<br>"$
+    </td>
+</tr>
+>>
