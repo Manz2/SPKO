@@ -32,7 +32,7 @@ public final class Procedural {
     }
 
     private static void readLines(BufferedReader reader, LinkedList<String> lines) throws IOException {
-        String line;
+        String line; //impertaiv auf die Liste wird zugegriffen und sie wird bearbeitet änderungen findnen statt
         while ((line = reader.readLine()) != null) {
             lines.add(line);
         }

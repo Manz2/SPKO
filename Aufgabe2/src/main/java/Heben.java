@@ -5,8 +5,8 @@ public final class Heben implements Befehl {
     public Heben(String richtung,int distanz) {
         this.richtung = richtung;
         this.distanz = distanz;
-        if(distanz > 2500){
-            System.exit(1);
+        if(distanz > 2500){ //negative werte
+            System.exit(1);//kein exit
             //hier fehlt noch eine Fehlermeldung
         }
     }

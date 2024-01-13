@@ -1,5 +1,5 @@
 public final class Fahren implements Befehl {
-    private final String richtung;
+    private final String richtung;//evtl enum
     private final int distanz;
 
     public Fahren(String richtung,int distanz) {
